@@ -1,0 +1,31 @@
+<footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		{% for link in site.data.footer %}
+      {% if link.url contains 'http' %}
+        {% assign domain = '' %}
+        {% else %}
+        {% assign domain = site.url %}
+      {% endif %}
+			<li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		{% endfor %}
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; {{ site.time | date: '%Y' }} <a href="{{ site.url }}">{{ site.title }}</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+
+
+<script>
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      /* TODO: keep going after an individual parse error. */
+      var script = scripts[i];
+      if (script.type.match(/^math\/tex/)) {
+        var text = script.text === "" ? script.innerHTML : script.text;
+        var options = script.type.match(/mode\s*=\s*display/) ?
+                      {displayMode: true} : {};
+        script.insertAdjacentHTML("beforebegin",
+                                  katex.renderToString(text, options));
+      }
+    }
+    document.body.className += " math_finished";
+  </script>
