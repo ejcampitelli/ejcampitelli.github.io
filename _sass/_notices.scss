@@ -35,6 +35,9 @@
 	}
 }
 
+.notice-comp {
+	@include notice($comp-color);
+}
 /*
    Info notice .notice-info
    ========================================================================== */
@@ -76,6 +79,17 @@
 	font-weight: bold;
 	display: block;
 }
+
+.pensar {
+	@include notice($comp-color);
+}
+
+.pensar:before {
+	content: "Ejercicio:";
+	font-weight: bold;
+	display: block;
+}
+
 
 /*
    Browser upgrade notice
